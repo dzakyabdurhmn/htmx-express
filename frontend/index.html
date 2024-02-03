@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <h1>Kegiatanku</h1>
+      <h1 id="notif"></h1>
+      <input name="data" placeholder="masukan kegiatanmu" />
+
+      <button
+        hx-includee="[name=data]"
+        hx-trigger="click"
+        hx-post="http://localhost:5000/todo"
+        hx-target="#notif"
+      >
+        add
+      </button>
+      <div hx-get="http://localhost:5000/todo" hx-trigger="load, every 2s">
+        <!-- FROM DATABASE -->
+      </div>
+    </section>
+  </body>
+</html>
